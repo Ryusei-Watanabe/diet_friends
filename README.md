@@ -51,22 +51,24 @@ postgresQL
 
 記事検索
 ## カタログ設計
-https://docs.google.com/spreadsheets/d/1pSszVSzHiS_Y8yHRcOfNDsDU_Iaowm7-5YamXZrCNAk/edit#gid=1235148333
+https://docs.google.com/spreadsheets/d/1pSszVSzHiS_Y8yHRcOfNDsDU_Iaowm7-5YamXZrCNAk/edit?usp=sharing
 ## ER図
-https://docs.google.com/spreadsheets/d/1wxT-Xa2yukFDDGjeRmw1Gs7VxddYPBm-7IyhoN43Df0/edit#gid=0
+https://docs.google.com/spreadsheets/d/1wxT-Xa2yukFDDGjeRmw1Gs7VxddYPBm-7IyhoN43Df0/edit?usp=sharing
 ## 画面遷移図
-https://docs.google.com/spreadsheets/d/1EHJRsBrW875O71gfgy9pxbcRmOVOZuJ8nOmV5kcj15M/edit#gid=0
+https://docs.google.com/spreadsheets/d/1EHJRsBrW875O71gfgy9pxbcRmOVOZuJ8nOmV5kcj15M/edit?usp=sharing
 ## ワイヤーフレーム
-https://docs.google.com/spreadsheets/d/1TKOJCNptkP0MkayIdrR3zxOEDG7CbDx1Q8YDL-l2CoQ/edit#gid=0
+https://docs.google.com/spreadsheets/d/1TKOJCNptkP0MkayIdrR3zxOEDG7CbDx1Q8YDL-l2CoQ/edit?usp=sharing
 ## 使用予定のGem
 carrierwave
 
 minimagic
 
+##### 就職Termより
 devise
 
 ransack
 
+##### カリキュラム外から
 chartkick
 ## その他
 ajax

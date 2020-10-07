@@ -66,10 +66,13 @@ minimagic
 ##### 就職Termより
 devise
 
-ransack
+メッセージ機能
 
 ##### カリキュラム外から
 chartkick
+
+
+ransack
 ## その他
 ajax
 

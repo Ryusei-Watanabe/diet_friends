@@ -1,4 +1,9 @@
-h1
-  | Diary
+.wrapper
+  h1
+    | Diary
 
--
+  - @diaries.each do |diary|
+    .diary_wrapper
+      - link_to post do
+        .diary
+          = diary.title

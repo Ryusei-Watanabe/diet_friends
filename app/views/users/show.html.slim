@@ -1,0 +1,9 @@
+p 名前:#{@user.name}
+p 体重:#{@user.body_weight}kg
+p 目標体重:#{@user.target_weight}kg
+p プロフィール:
+p #{@user.profile}
+
+br
+- if @user.id == current_user.id
+  = link_to "ユーザー情報の変更", edit_user_registration_path

@@ -9,6 +9,7 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     - if user_signed_in?
+      = link_to "マイページ", user_path(current_user.id)
       = link_to "日記一覧", root_path
       = link_to "ログアウト", destroy_user_session_path, method: :delete
     - else

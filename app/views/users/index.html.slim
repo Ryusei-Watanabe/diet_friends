@@ -5,7 +5,8 @@ table
     th プロフィール
   tbody
     - @users.each do |user|
-        tr
-          td = link_to user_path(user.id) do
-             = user.name
-          td = user.profile
+      tr
+        td = link_to user_path(user.id) do
+          = user.name
+        td  = user.profile
+        td  = render "follow_form", user: user

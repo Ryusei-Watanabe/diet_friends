@@ -4,6 +4,14 @@ table
     th 名前
     th プロフィール
   tbody
+    = search_form_for @q do |f|
+      = f.label :target_weight, "目標体重"
+
+      = f.number_field :target_weight_gteq
+      '以上
+      = f.number_field :target_weight_lt
+      '未満
+      = f.submit "検索"
     - @users.each do |user|
       tr
         td = link_to user_path(user.id) do

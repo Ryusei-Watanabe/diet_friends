@@ -1,5 +1,11 @@
-- @users.each do |user|
-  = link_to user_path(user.id) do
-    = user.name
-    = user.profile
-  / = render "follow_form", user: user
+h1 Users
+table
+  thead
+    th 名前
+    th プロフィール
+  tbody
+    - @users.each do |user|
+        tr
+          td = link_to user_path(user.id) do
+             = user.name
+          td = user.profile

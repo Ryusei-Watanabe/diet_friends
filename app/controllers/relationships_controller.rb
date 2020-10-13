@@ -1,7 +1,6 @@
 class RelationshipsController < ApplicationController
   respond_to? :js
   def index
-    @
   end
   def create
     if logged_in?

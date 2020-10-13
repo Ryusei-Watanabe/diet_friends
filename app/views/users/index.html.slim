@@ -16,3 +16,5 @@ table
         td = link_to user_path(user.id) do
           = user.name
         td  = user.profile
+    div.pagination_wrapper
+      = paginate @users

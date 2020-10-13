@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'relationships/create'
+  get 'relationships/destroy'
+  devise_for :users, controllers: {
+      registrations: 'users/registrations'
+  }
+  resources :users, only: [:index, :show]
   resources :diaries
-  root "diaries#index"
+  resources :relationships, only: [:create, :destroy]
+  root "users#show"
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end

@@ -1,6 +1,8 @@
 class DiariesController < ApplicationController
+  before_action :set_diary, only: [:show, :edit, :update, :destroy]
+  before_action :whose_diary?, only: [:edit, :destroy]
   def index
-    @diaries = Diary.all
+    @diaries = current_user.diaries.all.order(created_at: :desc)
   end
   def new
     @diary = Diary.new
@@ -8,7 +10,7 @@ class DiariesController < ApplicationController
   def create
     @diary = current_user.diaries.build(diary_params)
     if params[:back]
-      format.html{render :new}
+      render :new
     else
       if @diary.save
         redirect_to diaries_path, notice: 'Post was successfully created.'
@@ -19,8 +21,18 @@ class DiariesController < ApplicationController
   end
   def show
   end
-
   def edit
+  end
+  def update
+    if @diary.update(diary_params)
+      redirect_to diaries_path, notice: 'EditDiary'
+    else
+      render :edit
+    end
+  end
+  def destroy
+    @diary.destroy
+    redirect_to diaries_path, notice: 'Diary was successfully destroyed.'
   end
   private
   def set_diary
@@ -28,5 +40,10 @@ class DiariesController < ApplicationController
   end
   def diary_params
     params.require(:diary).permit(:title, :body_weight, :study)
+  end
+  def whose_diary?
+    if @diary.user != current_user
+      redirect_to diary_path
+    end
   end
 end

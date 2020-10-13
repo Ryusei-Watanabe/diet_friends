@@ -7,3 +7,12 @@ p #{@user.profile}
 br
 - if @user.id == current_user.id
   = link_to "ユーザー情報の変更", edit_user_registration_path
+- else
+  = render "follow_form", user: @user
+  h1 Diary
+  - @diaries.each do |diary|
+    .diary_wrapper
+      = link_to diary do
+        .diary
+          = diary.title
+= link_to 'Back', users_path

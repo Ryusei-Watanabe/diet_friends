@@ -1,4 +1,4 @@
-h1
-  | Diaries#edit
-p
-  | Find me in app/views/diaries/edit.html.erb
+div.wrapper
+  = render 'form', diary: @diary
+  = link_to 'Show', @diary
+  = link_to 'Back', diaries_path

@@ -6,7 +6,6 @@ table
   tbody
     = search_form_for @q do |f|
       = f.label :target_weight, "目標体重"
-
       = f.number_field :target_weight_gteq
       '以上
       = f.number_field :target_weight_lt
@@ -17,4 +16,5 @@ table
         td = link_to user_path(user.id) do
           = user.name
         td  = user.profile
-        td  = render "follow_form", user: user
+    div.pagination_wrapper
+      = paginate @users

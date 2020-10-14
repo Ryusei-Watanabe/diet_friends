@@ -1,4 +1,8 @@
 h1
-  | Diaries#show
+  = @diary.title
 p
-  | Find me in app/views/diaries/show.html.erb
+  = @diary.study
+
+- if @diary.user.id == current_user.id
+  = link_to '編集', edit_diary_path(@diary)
+  = link_to '削除', @diary, method: :delete, data: { confirm: 'Are you sure?' }

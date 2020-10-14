@@ -4,8 +4,10 @@
 
   - @diaries.each do |diary|
     .diary_wrapper
-      - link_to post do
+      = link_to diary do
         .diary
           = diary.title
+  div.pagination_wrapper
+    = paginate @diaries
 
 = link_to '新規投稿', new_diary_path

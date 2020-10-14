@@ -1,1 +1,12 @@
-
+= form_with(model: @diary, local: true, url:choose_new_or_edit) do |form|
+  div.field
+    = form.label :title
+    = form.text_field :title
+  div.field
+    = form.label :body_weight
+    = form.number_field :body_weight, autocomplete: "Body weight"
+  div.field
+    = form.label :study
+    = form.text_area :study
+  div.actions
+    = form.submit

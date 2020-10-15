@@ -1,0 +1,6 @@
+h1
+  = @group.name
+p
+  = link_to "グループを削除",@group, methods: :dalete, data: {confirm: 'Are you sure?' }
+
+p ここからはajax

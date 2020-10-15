@@ -11,6 +11,7 @@ html
     - if user_signed_in?
       = link_to "マイページ", user_path(current_user.id)
       = link_to "日記一覧", diaries_path
+      = link_to "友達一覧", relationships_path
       = link_to "友達を探す", users_path
       = link_to "ログアウト", destroy_user_session_path, method: :delete
     - else

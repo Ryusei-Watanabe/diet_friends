@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_12_021355) do
+ActiveRecord::Schema.define(version: 2020_10_14_052904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assigns", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "group_id"
+    t.index ["group_id"], name: "index_assigns_on_group_id"
+    t.index ["user_id"], name: "index_assigns_on_user_id"
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "group_id"
+    t.index ["group_id"], name: "index_chats_on_group_id"
+    t.index ["user_id"], name: "index_chats_on_user_id"
+  end
 
   create_table "diaries", force: :cascade do |t|
     t.string "title"
@@ -23,6 +42,14 @@ ActiveRecord::Schema.define(version: 2020_10_12_021355) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_diaries_on_user_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -51,5 +78,10 @@ ActiveRecord::Schema.define(version: 2020_10_12_021355) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "assigns", "groups"
+  add_foreign_key "assigns", "users"
+  add_foreign_key "chats", "groups"
+  add_foreign_key "chats", "users"
   add_foreign_key "diaries", "users"
+  add_foreign_key "groups", "users"
 end

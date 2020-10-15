@@ -1,0 +1,6 @@
+= form_with(model: @group, local: true, url:choose_new_or_edit) do |form|
+  div.field
+    = form.label :name
+    = form.text_field :name
+  div.actions
+    = form.submit

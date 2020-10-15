@@ -1,6 +1,7 @@
 class RelationshipsController < ApplicationController
   respond_to? :js
   def index
+    @users = current_user.followeds & current_user.followers if logged_in?
   end
   def create
     if logged_in?
@@ -8,7 +9,6 @@ class RelationshipsController < ApplicationController
       current_user.follow!(@user)
     end
   end
-
   def destroy
     @user = Relationship.find(params[:id]).followed
     current_user.unfollow!(@user)

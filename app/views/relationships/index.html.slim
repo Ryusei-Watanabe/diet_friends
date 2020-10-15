@@ -1,1 +1,12 @@
-友達一覧
+p フォロー#{current_user.followeds.count}
+p フォロワー#{current_user.followers.count}
+table
+  thead
+    th 名前
+    th プロフィール
+  tbody
+    - @users.each do |user|
+      tr
+        td = link_to user_path(user.id) do
+           = user.name
+        td = user.profile

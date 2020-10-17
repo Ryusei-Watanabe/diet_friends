@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :diaries
   resources :groups do
-    resources :chats, only: [:create, :destroy]
+    resources :chats, only: [:index, :create, :destroy]
   end
   resources :relationships, only: [:index, :create, :destroy]
   root "users#show"

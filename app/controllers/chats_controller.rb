@@ -1,20 +1,26 @@
 class ChatsController < ApplicationController
-  def new
-    @chat = current_user.chats.new
-    @group = Group.find_by(id: params[:group_id])
+  before_action :set_group
+  def index
+    @chat = Chat.new
+    @chats = @group.chats.includes(:user).order( created_at: :desc)
   end
 
   def create
-    @group = Group.find_by(id: params[:group_id])
-    @chat = current_user.chats.new(chat_params)
-    @chat.group_id = params[:group_id]
+    @chat = @group.chats.new(chat_params)
     if @chat.save
-      redirect_to group_path(@group.id)
+      redirect_to group_chats_path(@group)
+    else
+      @messages = @group.messages.includes(:user)
+      flash.now[:alert] = 'メッセージを入力してください。'
+      render :index
     end
   end
 
   private
+  def set_group
+    @group = Group.find(params[:group_id])
+  end
   def chat_params
-    params.require(:chat).permit(:content)
+    params.require(:chat).permit(:content, :image).merge(user_id: current_user.id)
   end
 end

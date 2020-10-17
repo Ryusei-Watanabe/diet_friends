@@ -1,0 +1,8 @@
+h1
+  = @group.name
+p ユーザー名：
+- @group.users.each do |user|
+    = user.name
+
+.wrapper
+  = render "main_chat"

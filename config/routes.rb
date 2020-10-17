@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   }
   resources :users, only: [:index, :show]
   resources :diaries
-  resources :relationships, only: [:create, :destroy]
+  resources :groups do
+    resources :chats, only: [:create, :destroy]
+  end
+  resources :relationships, only: [:index, :create, :destroy]
   root "users#show"
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end

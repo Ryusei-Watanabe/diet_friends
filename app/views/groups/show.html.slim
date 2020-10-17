@@ -4,5 +4,9 @@ p
   - @group.users.each do |user|
     = user.name
 p
+  = link_to "グループを編集", edit_group_path
+p
   = link_to "グループを削除",@group, method: :delete, data: {confirm: 'Are you sure?' }
 p ここからはajax
+p
+  = link_to "戻る", groups_path

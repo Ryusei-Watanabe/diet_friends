@@ -7,6 +7,11 @@ p
   = link_to "グループを編集", edit_group_path
 p
   = link_to "グループを削除",@group, method: :delete, data: {confirm: 'Are you sure?' }
-p ここからはajax
+p
+  ここからはajaxでチャット機能
+p
+  - @group.chats.each do |chat|
+    = chat.content
+
 p
   = link_to "戻る", groups_path

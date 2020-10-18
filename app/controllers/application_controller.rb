@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
     users_path(resource.id)
   end
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :profile, :body_weight, :target_weight])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :icon])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :icon, :profile, :body_weight, :target_weight])
   end
   def check_user
     if @user.id != current_user.id

@@ -3,7 +3,12 @@ p 体重: #{@user.body_weight}kg
 p 目標体重: #{@user.target_weight}kg
 p プロフィール:
 p #{@user.profile}
-
+p
+  = line_chart current_user.diaries.pluck(:create_date, :body_weight),
+          id: 'total-attendance-chart',
+          width: '200px',
+          height: '300px',
+          colors: ['#b00']
 br
 - if @user.id == current_user.id
   = link_to "ユーザー情報の変更", edit_user_registration_path, class: 'glyphicon glyphicon-cog'
@@ -15,4 +20,5 @@ br
       = link_to diary do
         .diary
           = diary.title
-= link_to 'Back', users_path
+p
+  = link_to 'Back', users_path

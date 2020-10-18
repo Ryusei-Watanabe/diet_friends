@@ -6,7 +6,7 @@ p #{@user.profile}
 
 br
 - if @user.id == current_user.id
-  = link_to "ユーザー情報の変更", edit_user_registration_path
+  = link_to "ユーザー情報の変更", edit_user_registration_path, class: 'glyphicon glyphicon-cog'
 - else
   = render "follow_form", user: @user
   h1 Diary

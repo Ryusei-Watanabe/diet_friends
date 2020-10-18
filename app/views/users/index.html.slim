@@ -10,7 +10,7 @@ table
       '以上
       = f.number_field :target_weight_lt
       '未満
-      = f.submit "検索"
+      = f.submit "🔍"
     - @users.each do |user|
       tr
         td = link_to user_path(user.id) do

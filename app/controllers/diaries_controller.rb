@@ -9,6 +9,7 @@ class DiariesController < ApplicationController
   end
   def create
     @diary = current_user.diaries.build(diary_params)
+    @diary.create_date = Date.today
     if params[:back]
       render :new
     else

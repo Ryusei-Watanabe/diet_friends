@@ -2,6 +2,7 @@
   "name": "diet_friends",
   "private": true,
   "dependencies": {
+    "bootstrap": "3",
     "jquery": "^3.5.1"
   }
 }

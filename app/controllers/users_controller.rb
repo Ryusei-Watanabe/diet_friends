@@ -6,5 +6,6 @@ class UsersController < ApplicationController
   end
   def show
     @diaries = @user.diaries.select(:id, :title, :created_at)
+    @chart = Diary.pluck(:body_weight, :created_at)
   end
 end

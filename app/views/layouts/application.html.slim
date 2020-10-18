@@ -9,11 +9,12 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     - if user_signed_in?
-      = link_to "マイページ", user_path(current_user.id)
-      = link_to "日記一覧", diaries_path
+      = link_to "マイページ", user_path(current_user.id), class: "glyphicon glyphicon-user"
+        / span.glyphicon glyphicon-user
+      = link_to "日記一覧", diaries_path, class: 'glyphicon glyphicon-book'
       = link_to "グループ一覧", groups_path
       = link_to "友達一覧", relationships_path
-      = link_to "友達を探す", users_path
+      = link_to "友達を探す", users_path, class: 'glyphicon glyphicon-search'
       = link_to "ログアウト", destroy_user_session_path, method: :delete
       / .groups
         - current_user.groups.each do |group|

@@ -15,6 +15,14 @@ html
       = link_to "友達一覧", relationships_path
       = link_to "友達を探す", users_path
       = link_to "ログアウト", destroy_user_session_path, method: :delete
+      / .groups
+        - current_user.groups.each do |group|
+          .group
+            = link_to group_messages_path(group) do
+              .group__name
+                = group.name
+              .group__message
+                メッセージはまだありません
     - else
       = link_to "新規登録", new_user_registration_path
       = link_to "ログイン", new_user_session_path

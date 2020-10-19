@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :assigns, dependent: :destroy
   has_many :groups, through: :assigns
   has_many :chats
+  mount_uploader :icon, ImageUploader
 
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)

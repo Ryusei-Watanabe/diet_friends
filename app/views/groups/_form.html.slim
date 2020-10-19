@@ -7,7 +7,3 @@
       = user.label { user.check_box + user.text }
   div.actions
     = form.submit
-
-  / p　使えそうではある。updateの時に自分のparamsが渡らない。
-    paramsが失われる理由は自分のチェックボックスがないのでparams渡せない
-    = form.hidden_field :user_ids, value: current_user.id

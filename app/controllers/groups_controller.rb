@@ -31,8 +31,14 @@ class GroupsController < ApplicationController
     end
   end
   def destroy
-    @group.destroy
-    redirect_to groups_path, notice: "削除しました"
+    @group.assigns.find_by(user_id: current_user.id).destroy
+    if @group.assigns.present?
+      redirect_to groups_path, notice: "グループを脱退しました"
+    else
+      @group.destroy
+      redirect_to groups_path, notice: "グループを削除しました"
+    end
+
   end
   private
   def set_group

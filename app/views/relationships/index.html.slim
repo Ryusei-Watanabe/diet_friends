@@ -1,5 +1,27 @@
 p フォロー#{current_user.followeds.count}
+table
+  thead
+    th 名前
+    th プロフィール
+  tbody
+    - @followeds.each do |user|
+      tr
+        td = link_to user_path(user.id) do
+          = user.name
+        td = user.profile
 p フォロワー#{current_user.followers.count}
+table
+  thead
+    th 名前
+    th プロフィール
+  tbody
+    - @followers.each do |user|
+      tr
+        td = link_to user_path(user.id) do
+          = user.name
+        td = user.profile
+
+
 table
   thead
     th 名前

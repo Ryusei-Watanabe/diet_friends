@@ -1,7 +1,9 @@
 class RelationshipsController < ApplicationController
   respond_to? :js
   def index
-    @users = current_user.followeds & current_user.followers if logged_in?
+    @users = current_user.followeds & current_user.followers
+    @followeds = current_user.followeds
+    @followers = current_user.followers
   end
   def create
     if logged_in?

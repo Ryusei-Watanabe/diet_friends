@@ -47,11 +47,10 @@
 .chat-room{
     font-size:2rem;
 }
-.user_wrapper{
+.user_show_wrapper{
     width: calc(100% / 5);
     margin: 0;
     z-index: 100;
-
     /*background-color: #;*/
 }
 .profile_wrapper{
@@ -76,4 +75,43 @@ p{margin-top: 0;}
 
 .users_index_font{
     font-size: 2rem;
+}
+.user_index_wrapper{
+    position: relative;
+}
+.user_index_wrapper:hover{opacity: 0.8;}
+
+.user_icon_wrapper{
+    height:50px;
+    width: 50px;
+}
+.group_users_wrapper{
+    height: 25rem;
+    width: 100%;
+    overflow: scroll;
+}
+.users_wrapper{
+    height: 50rem;
+    width: 100%;
+    overflow: scroll;
+}
+.user_name_wrapper{
+    position: absolute;
+    left: 60px;
+    bottom: 30px;
+    height:1.5rem;
+    vertical-align: top;
+    color: black;
+}
+.user_profile_wrapper{
+    position: absolute;
+    left: 60px;
+    bottom: 10px;
+    height:1.5rem;
+    vertical-align: bottom;
+    text-align: left;
+    color: black;
+}
+.box{
+    display: table-cell;
 }

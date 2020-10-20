@@ -1,6 +1,9 @@
+.groups_index_wrapper
 - @groups.each do |group|
-  = link_to group do
+  = link_to group_chats_path(group) do
     p
       = group.name
+      - group.users.each do |user|
+          = image_tag user.icon.url, class: 'icon icon_image'
 .group_btn_wrapper
   = link_to '新規グループ', new_group_path, class: 'btn btn-default'

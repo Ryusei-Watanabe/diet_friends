@@ -1,5 +1,6 @@
 class ChatsController < ApplicationController
-  before_action :set_group
+  before_action :set_group, only:[:index, :create]
+  before_action :set_chat, only:[:edit, :destroy]
   def index
     @chat = Chat.new
     @chats = @group.chats.includes(:user).order( created_at: :desc)
@@ -16,9 +17,18 @@ class ChatsController < ApplicationController
     end
   end
 
+  def destroy
+    @chat.destroy
+    redirect_to chats_path, notice: 'Chat was successfully destroyed.'
+
+  end
+
   private
   def set_group
     @group = Group.find(params[:group_id])
+  end
+  def set_chat
+    @chat = Chat.find(params[:id])
   end
   def chat_params
     params.require(:chat).permit(:content, :image).merge(user_id: current_user.id)

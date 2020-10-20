@@ -12,9 +12,11 @@
     ul class="dropdown-menu" aria-labelledby="dropdownMenu1"
       li = link_to user_path(user.id) do
         = user.name
-.table-responsive
 
-table.table.table-striped
+.table-responsive
+.relationship_btn_wrapper
+  = link_to "友達を探す", users_path, class: 'glyphicon glyphicon-search btn btn-default'
+/ table.table.table-striped
   thead
     th アイコン
     th 名前
@@ -26,3 +28,14 @@ table.table.table-striped
         td.user_name_font = link_to user_path(user.id) do
            = user.name
         td.user_profile_font = user.profile
+.users_wrapper
+  - @users.each do |user|
+    = link_to user_path(user.id) do
+      .user_index_wrapper
+        .user_icon_wrapper.box
+          = image_tag user.icon.url, class: 'icon icon_image'
+        .user_name_wrapper.box
+          = user.name
+        .user_profile_wrapper.box
+          = user.profile
+= link_to "戻る", user_path(current_user.id)

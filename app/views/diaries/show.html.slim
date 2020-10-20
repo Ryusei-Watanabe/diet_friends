@@ -6,8 +6,8 @@ p
   = @diary.created_at.strftime("%Y年%m月%d日")
 
 - if @diary.user.id == current_user.id
-  = link_to '編集', edit_diary_path(@diary)
-  = link_to '削除', @diary, method: :delete, data: { confirm: 'Are you sure?' }
+  = link_to '編集', edit_diary_path(@diary), class: 'btn btn-default'
+  = link_to '削除', @diary, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default'
 p
   = link_to "戻る", diaries_path, class: "glyphicon glyphicon-arrow-left"
 

@@ -1,11 +1,14 @@
-.message
-  .upper-message
-    .upper-message__user-name
+.chat_wrapper
+  = link_to "チャット削除", group_chat_path, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default'
+  .upper-chat
+    .upper_chat_user_icon
+      = image_tag chat.user.icon.url, class: 'icon icon_image'
+    .upper_chat_user_name.box
       = chat.user.name
-    .upper-message__date
+    .upper_chat_date.box
       = chat.created_at.strftime("%Y年%m月%d日 %H時%M分")
-  .lower-message
-    - if chat.content.present?
-      p.lower-message__content
-        = chat.content
-    = image_tag chat.image.url, class: 'lower-message__image' if chat.image.present?
+    .user_chat
+      - if chat.content.present?
+        p.chat_content
+          = chat.content
+      = image_tag chat.image.url, class: 'chat_image' if chat.image.present?

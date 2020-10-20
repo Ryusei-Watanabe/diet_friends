@@ -1,22 +1,22 @@
 h1
   = @group.name
 p
-  = link_to "グループを編集", edit_group_path
-
+  = link_to "グループを編集", edit_group_path, class: 'btn btn-default'
 p
+  = link_to "グループを脱退",@group, method: :delete, data: {confirm: 'Are you sure?' }, class: 'btn btn-default'
+
+.group_users_wrapper
   - @group.users.each do |user|
-    = user.name
-
-p
-- @group.chats.each do |chat|
-    .content_wrapper
-      = chat.content
+    = link_to user_path(user.id) do
+      .user_index_wrapper
+        .user_icon_wrapper.box
+          = image_tag user.icon.url, class: 'icon icon_image'
+        .user_name_wrapper.box
+          = user.name
+        .user_profile_wrapper.box
+          = user.profile
 .button-wrapper
-  svg width="2em" height="2rem" viewBox="0 0 16 16" class="bi bi-chat-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-    path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z"
-  = link_to "チャットルーム", group_chats_path(@group),class: "chat-room"
 p
-  = link_to "グループを脱退",@group, method: :delete, data: {confirm: 'Are you sure?' }
-p
-  = link_to "戻る", groups_path, class: "glyphicon glyphicon-arrow-left"
+  = link_to "戻る", group_chats_path(@group), class: "glyphicon glyphicon-arrow-left"
+
 

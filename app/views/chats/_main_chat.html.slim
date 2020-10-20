@@ -1,9 +1,9 @@
-.form
+.chats_wrapper
+  = render @chats
+.chat_form
   = form_for [@group, @chat] do |f|
-    = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-    .image_form
-      = f.label :image, class: 'glyphicon glyphicon-paperclip' do
+    = f.text_field :content, class: 'content_form', placeholder: 'type a message'
+    .image_clip
+      = f.label :image, class: 'glyphicon glyphicon-paperclip image_form' do
         = f.file_field :image, class: 'hidden'
-    = f.submit '送信', class: 'form__submit'
-    .messages
-      = render @chats
+    = f.submit '送信', class: 'chat_submit'

@@ -16,8 +16,6 @@
 .chat_form{
   width: 65vw;
   position: absolute;
-  //left: 10vw;
-  //bottom:0px;
 }
 .new_chat{
   position: relative;
@@ -40,13 +38,13 @@
 }
 .upper_chat_user_name{
   position: absolute;
-  left: 60px;
-  top:15px;
+  left: 65px;
+  top:5px;
 }
 .upper_chat_date{
   position: absolute;
-  left: 120px;
-  top:15px;
+  left: 200px;
+  top:5px;
 }
 .user_chat{
   margin-left: 60px;
@@ -54,6 +52,8 @@
 .chat_image{
   width: 30vw;
 }
-.chat_wrapper:hover{
-  opacity: 0.6;
+.chat_delete{
+  position: absolute;
+  left: 65px;
+  top:25px;
 }

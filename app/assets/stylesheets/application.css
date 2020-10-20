@@ -14,9 +14,66 @@
  *= require_tree .
  *= require_self
  */
+.flex_wrapper{
+    display: flex;
+}
+
 .icon_img {
     width:30vw;
     height:30vh;
     padding:15px;
     margin:0 auto;
+}
+.icon_img {
+    /*width: calc(100%/5);*/
+    /*height: auto;*/
+    width: 18em;
+    height: 18em;
+    border-radius:50%;
+    margin: 0 auto;
+    content: '写真を表示';
+    font-size: 1vw;
+}
+.icon_image{
+    height:50px;
+    width:50px;
+    border-radius:50%;
+}
+#name{
+    font-size: 3rem;
+    font-weight:bold;
+    padding-bottom: 3rem;
+}
+.chat-room{
+    font-size:2rem;
+}
+.user_wrapper{
+    width: calc(100% / 5);
+    margin: 0;
+    z-index: 100;
+
+    /*background-color: #;*/
+}
+.profile_wrapper{
+}
+.user_icon{
+    width: calc(100% /2);
+}
+.user_profile{
+    line-height:300%;
+    padding: 15px;
+}
+.article_wrapper{
+    width: 100%;
+}
+
+
+
+a :hover{opacity: 0.8;}
+#notice{margin: 0;}
+p{margin-top: 0;}
+.navbar{margin: 0;}
+
+.users_index_font{
+    font-size: 2rem;
 }

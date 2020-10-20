@@ -13,13 +13,13 @@ html
         .navbar-header
           .navbar-brand diet_fried
         #gnavi.collapse.navbar-collapse
-          ul.nav.navbar-nav
+          ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
               li = link_to "マイページ", user_path(current_user.id), class: "glyphicon glyphicon-user"
                 / span.glyphicon glyphicon-user
-              li = link_to "日記一覧", diaries_path, class: 'glyphicon glyphicon-book'
+              li
               li = link_to "グループ一覧", groups_path
-              li = link_to "友達一覧", relationships_path
+              li
               li = link_to "友達を探す", users_path, class: 'glyphicon glyphicon-search'
               li = link_to "ログアウト", destroy_user_session_path, method: :delete
             - else

@@ -2,7 +2,7 @@ class DiariesController < ApplicationController
   before_action :set_diary, only: [:show, :edit, :update, :destroy]
   before_action :whose_diary?, only: [:edit, :destroy]
   def index
-    @diaries = current_user.diaries.order(created_at: :desc).page(params[:page]).per(5)
+    @diaries = current_user.diaries.order(created_at: :desc)
   end
   def new
     @diary = Diary.new

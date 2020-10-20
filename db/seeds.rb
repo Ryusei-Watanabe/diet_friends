@@ -80,3 +80,28 @@ end
       followed_id: 1,
       )
 end
+1.times do |n|
+  Group.create!(
+      name: "sample#{n+1}"
+      )
+end
+1.times do
+  Assign.create!(
+      user_id: 1,
+      group_id: 1,
+      )
+end
+1.times do
+  Assign.create!(
+      user_id: 2,
+      group_id: 1,
+      )
+end
+1.times do |n|
+  Chat.create!(
+      content: "サンプル#{n+1}",
+      image: open("./db/fixtures/icon0#{n + 1}.jpg"),
+      group_id: 1,
+      user_id: 1,
+      )
+end

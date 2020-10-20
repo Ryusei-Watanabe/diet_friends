@@ -1,8 +1,8 @@
 h1
   = @group.name
-p ユーザー名：
+p
 - @group.users.each do |user|
-    = user.name
+  = image_tag user.icon.url, class: 'icon icon_image'
 
 .wrapper
   = render "main_chat"

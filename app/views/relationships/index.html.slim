@@ -1,34 +1,28 @@
-p フォロー#{current_user.followeds.count}
-table
-  thead
-    th 名前
-    th プロフィール
-  tbody
-    - @followeds.each do |user|
-      tr
-        td = link_to user_path(user.id) do
-          = user.name
-        td = user.profile
-p フォロワー#{current_user.followers.count}
-table
-  thead
-    th 名前
-    th プロフィール
-  tbody
-    - @followers.each do |user|
-      tr
-        td = link_to user_path(user.id) do
-          = user.name
-        td = user.profile
+.dropdown
+  button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" フォロー中#{current_user.followeds.count}
+  span class="caret"
+  - @followeds.each do |user|
+    ul class="dropdown-menu" aria-labelledby="dropdownMenu1"
+      li = link_to user_path(user.id) do
+        = user.name
+.dropdown
+  button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" フォロワー#{current_user.followers.count}
+  span class="caret"
+  - @followers.each do |user|
+    ul class="dropdown-menu" aria-labelledby="dropdownMenu1"
+      li = link_to user_path(user.id) do
+        = user.name
+.table-responsive
 
-
-table
+table.table.table-striped
   thead
+    th アイコン
     th 名前
     th プロフィール
   tbody
     - @users.each do |user|
-      tr
-        td = link_to user_path(user.id) do
+      tr.users_index_font
+        td = image_tag user.icon.url, class: 'icon icon_image'
+        td.user_name_font = link_to user_path(user.id) do
            = user.name
-        td = user.profile
+        td.user_profile_font = user.profile

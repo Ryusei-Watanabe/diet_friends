@@ -6,7 +6,7 @@ h1 友達を探す
   = f.number_field :target_weight_lt
   '未満
   = f.submit "検索"
-.users_wrapper
+.users_index_wrapper
   - @users.each do |user|
     = link_to user_path(user.id) do
       .user_index_wrapper

@@ -1,3 +1,6 @@
 p.wrapper
   = render 'form', group: @group
-  = link_to '戻る', group_path(@group.id), class: "glyphicon glyphicon-arrow-left"
+.set_link
+  = link_to "戻る", :back
+
+  / = link_to '戻る', group_path(@group.id), class: "glyphicon glyphicon-arrow-left"

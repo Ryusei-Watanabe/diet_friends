@@ -52,6 +52,9 @@
 .chat_image{
   width: 30vw;
 }
+.chat_content{
+  word-wrap: break-word;
+}
 .chat_delete{
   position: absolute;
   left: 65px;

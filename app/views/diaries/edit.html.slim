@@ -1,4 +1,5 @@
 div.wrapper
   = render 'form', diary: @diary
   = link_to 'Show', @diary
-  = link_to '戻る', diaries_path, class: "glyphicon glyphicon-arrow-left"
+.set_link
+  = link_to "戻る", :back

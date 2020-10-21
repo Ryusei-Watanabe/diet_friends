@@ -2,7 +2,7 @@
   = render @chats
 .chat_form
   = form_for [@group, @chat] do |f|
-    = f.text_field :content, class: 'content_form', placeholder: 'type a message'
+    = f.text_area :content,rows: 1, class: 'content_form', placeholder: 'type a message'
     .image_clip
       = f.label :image, class: 'glyphicon glyphicon-paperclip image_form' do
         = f.file_field :image, class: 'hidden'

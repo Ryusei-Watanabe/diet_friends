@@ -1,21 +1,20 @@
-h1 Users
-table
-  thead
-    th 名前
-    th プロフィール
-  tbody
-    = search_form_for @q do |f|
-      = f.label :target_weight, "目標体重"
-      = f.number_field :target_weight_gteq
-      '以上
-      = f.number_field :target_weight_lt
-      '未満
-      = f.submit "検索"
-    - @users.each do |user|
-      tr
-        td = link_to user_path(user.id) do
+h1 友達を探す
+= search_form_for @q do |f|
+  = f.label :target_weight, "目標体重"
+  = f.number_field :target_weight_gteq
+  '以上
+  = f.number_field :target_weight_lt
+  '未満
+  = f.submit "検索"
+.users_wrapper
+  - @users.each do |user|
+    = link_to user_path(user.id) do
+      .user_index_wrapper
+        .user_icon_wrapper.box
+          = image_tag user.icon.url, class: 'icon icon_image'
+        .user_name_wrapper.box
           = user.name
-        td  = user.profile
-    div.pagination_wrapper
-      = paginate @users
-= link_to "戻る", relationships_path
+        .user_profile_wrapper.box
+          = user.profile
+.set_link
+  = link_to "戻る", :back

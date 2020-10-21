@@ -7,7 +7,8 @@
   overflow: scroll;
 }
 .diaries_wrapper{
-  height: 350px; /* 高さを制限(※) */
+  height: 300px; /* 高さを制限(※) */
+  margin-bottom: 1rem;
   width: 100%;
   overflow: scroll;  /* スクロールバーを表示(※) */
   //border: black 1px dashed;    /* 枠線を追加 */

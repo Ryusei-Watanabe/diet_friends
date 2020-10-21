@@ -10,6 +10,5 @@
       = chat.created_at.strftime("%Y年%m月%d日 %H時%M分")
     .user_chat
       - if chat.content.present?
-        p.chat_content
-          = chat.content
+          = simple_format(chat.content,class:"chat_content")
       = image_tag chat.image.url, class: 'chat_image' if chat.image.present?

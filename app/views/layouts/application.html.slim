@@ -16,19 +16,14 @@ html
           ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
               li = link_to "マイページ", user_path(current_user.id), class: "glyphicon glyphicon-user"
-                / span.glyphicon glyphicon-user
-              li
-              li = link_to "グループ一覧", groups_path
-              li
-              li
+                / span.glyphicon.glyphicon-user
               li = link_to "ログアウト", destroy_user_session_path, method: :delete
             - else
               li = link_to "新規登録", new_user_registration_path
               li = link_to "ログイン", new_user_session_path
-
     - if notice
-      p.alert.alert-notice
-      = notice
+      .alert.alert-notice
+        = notice
     - if alert
       p.alert.alert-error
       = alert

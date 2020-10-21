@@ -10,5 +10,5 @@
             = diary.title
           .created_at
           = diary.created_at.strftime("%Y年%m月%d日")
-/ .back_button
-  / = link_to '戻る', user_path(@user), class: "glyphicon glyphicon-arrow-left"
+  .set_link
+    = link_to "戻る", :back

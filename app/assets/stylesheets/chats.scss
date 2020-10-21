@@ -1,3 +1,62 @@
 // Place all the styles related to the chats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.group_chat_name{
+  margin-left: 10vw;
+}
+.chats_wrapper{
+  height:35vw;
+  width: 80vw;
+  overflow: scroll;
+  margin: 0 auto;
+}
+.chat_wrapper{
+  position: relative;
+}
+.chat_form{
+  width: 65vw;
+  position: absolute;
+}
+.new_chat{
+  position: relative;
+}
+.content_form{
+  margin-left: 10vw;
+  width: 60vw;
+  position: absolute;
+}
+.image_form{
+  width: 10vw;
+  margin-left: 72vw;
+  vertical-align: center;
+  position: absolute;
+}
+.chat_submit{
+  margin-left: 75vw;
+  width: 10vw;
+  position: absolute;
+}
+.upper_chat_user_name{
+  position: absolute;
+  left: 65px;
+  top:5px;
+}
+.upper_chat_date{
+  position: absolute;
+  left: 200px;
+  top:5px;
+}
+.user_chat{
+  margin-left: 60px;
+}
+.chat_image{
+  width: 30vw;
+}
+.chat_content{
+  word-wrap: break-word;
+}
+.chat_delete{
+  position: absolute;
+  left: 65px;
+  top:25px;
+}

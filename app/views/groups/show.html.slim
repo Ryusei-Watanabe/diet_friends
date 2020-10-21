@@ -1,18 +1,21 @@
 h1
   = @group.name
 p
+  = link_to "グループを編集", edit_group_path, class: 'btn btn-default'
+p
+  = link_to "グループを脱退",@group, method: :delete, data: {confirm: 'Are you sure?' }, class: 'btn btn-default'
+
+.group_users_wrapper
   - @group.users.each do |user|
-    = user.name
-p
-  = link_to "グループを編集", edit_group_path
-p
-  = link_to "グループを脱退",@group, method: :delete, data: {confirm: 'Are you sure?' }
-p
-- @group.chats.each do |chat|
-    .content_wrapper
-      = chat.content
-p
-  = link_to "チャットルームへ", group_chats_path(@group)
-p
-  = link_to "戻る", groups_path
+    = link_to user_path(user.id) do
+      .user_index_wrapper
+        .user_icon_wrapper.box
+          = image_tag user.icon.url, class: 'icon icon_image'
+        .user_name_wrapper.box
+          = user.name
+        .user_profile_wrapper.box
+          = user.profile
+.set_link
+  = link_to "戻る", :back
+
 

@@ -1,8 +1,12 @@
-h1
-  = @group.name
-p ユーザー名：
-- @group.users.each do |user|
-    = user.name
+= link_to @group do
+  h1.group_chat_name
+    = @group.name
+/ p
+  - @group.users.each do |user|
+    = link_to user_path(user.id) do
+      = image_tag user.icon.url, class: 'icon icon_image'
 
 .wrapper
   = render "main_chat"
+.set_link
+  = link_to "戻る", :back

@@ -1,34 +1,42 @@
-p フォロー#{current_user.followeds.count}
-table
-  thead
-    th 名前
-    th プロフィール
-  tbody
-    - @followeds.each do |user|
-      tr
-        td = link_to user_path(user.id) do
-          = user.name
-        td = user.profile
-p フォロワー#{current_user.followers.count}
-table
-  thead
-    th 名前
-    th プロフィール
-  tbody
-    - @followers.each do |user|
-      tr
-        td = link_to user_path(user.id) do
-          = user.name
-        td = user.profile
+.et_pb_module
+  button id="guu" class="btn btn-default secList" type="button" 相互フォロー#{@users.count}
+.et_pb_module
+  button id="fuu" class="btn btn-default secList" type="button" フォロー中#{@followeds.count}
+.et_pb_module
+  button id="euu" class="btn btn-default secList" type="button" フォロワー#{@followers.count}
+.relationship_btn_wrapper
+  = link_to "友達を探す", users_path, class: 'glyphicon glyphicon-search btn btn-default'
 
+.guu.users_wrapper
+  - @users.each do |user|
+    = link_to user_path(user.id),class: "user_link" do
+      .user_index_wrapper
+        .user_icon_wrapper.box
+          = image_tag user.icon.url, class: 'icon icon_image'
+        .user_name_wrapper.box
+          = user.name
+        .user_profile_wrapper.box
+          = user.profile
+.fuu.users_wrapper
+  - @followeds.each do |user|
+    = link_to user_path(user.id) do
+      .user_index_wrapper
+        .user_icon_wrapper.box
+          = image_tag user.icon.url, class: 'icon icon_image'
+        .user_name_wrapper.box
+          = user.name
+        .user_profile_wrapper.box
+          = user.profile
+.euu.users_wrapper
+  - @followers.each do |user|
+    = link_to user_path(user.id) do
+      .user_index_wrapper
+        .user_icon_wrapper.box
+          = image_tag user.icon.url, class: 'icon icon_image'
+        .user_name_wrapper.box
+          = user.name
+        .user_profile_wrapper.box
+          = user.profile
 
-table
-  thead
-    th 名前
-    th プロフィール
-  tbody
-    - @users.each do |user|
-      tr
-        td = link_to user_path(user.id) do
-           = user.name
-        td = user.profile
+.set_link
+  = link_to "戻る", :back

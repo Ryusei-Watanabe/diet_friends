@@ -30,7 +30,7 @@
       icon: open("./db/fixtures/icon00.jpg")
   )
 end
-9.times do |n|
+29.times do |n|
   n = 1
   name = Faker::Games::Pokemon.name
   email = Faker::Internet.email
@@ -43,7 +43,7 @@ end
     body_weight: 70,
     target_weight: 65,
     profile: "シード#{n + 1}",
-    icon: open("./db/fixtures/icon0#{n + 1}.jpg")
+    icon: open("./db/fixtures/icon01.jpg")
   )
 end
 10.times do |n|
@@ -68,15 +68,40 @@ end
       user_id: 2,
       )
 end
-1.times do
+20.times do |n|
   Relationship.create!(
     follower_id: 1,
-    followed_id: 2,
+    followed_id: 1+(n+1),
   )
 end
-1.times do
+20.times do |n|
   Relationship.create!(
-      follower_id: 2,
+      follower_id: 1+(n+1),
       followed_id: 1,
+      )
+end
+2.times do |n|
+  Group.create!(
+      name: "sample#{n+1}"
+      )
+end
+10.times do |n|
+  Assign.create!(
+      user_id: n+1,
+      group_id: 1,
+      )
+end
+10.times do |n|
+  Assign.create!(
+      user_id: n+1,
+      group_id: 2  ,
+      )
+end
+1.times do |n|
+  Chat.create!(
+      content: "サンプル#{n+1}",
+      image: open("./db/fixtures/icon0#{n + 1}.jpg"),
+      group_id: 1,
+      user_id: 1,
       )
 end

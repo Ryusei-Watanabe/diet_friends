@@ -1,3 +1,18 @@
 // Place all the styles related to the groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.group_btn_wrapper{
+  width: 5rem;
+  margin: 0 auto;
+}
+.groups_index_wrapper{
+  height:35vw;
+  width: 80vw;
+  overflow: scroll;
+  margin: 0 auto;
+}
+.group_users_wrapper{
+  height: 50rem;
+  width: 100%;
+  overflow: scroll;
+}

@@ -1,26 +1,44 @@
-br
-= image_tag @user.icon.url, class: 'icon icon_img'
-p
-  = line_chart @user.diaries.pluck(:create_date, :body_weight),
-          id: 'total-attendance-chart',
-          width: '400px',
-          height: '300px',
-          colors: ['#b00']
-p 名前: #{@user.name}
-p 開始体重: #{@user.body_weight}kg
-p 目標体重: #{@user.target_weight}kg
-p プロフィール:
-p #{@user.profile}
-br
-- if @user.id == current_user.id
-  = link_to "ユーザー情報の変更", edit_user_registration_path, class: 'glyphicon glyphicon-cog'
-- else
-  = render "follow_form", user: @user
-  h1 Diary
-  - @diaries.each do |diary|
-    .diary_wrapper
-      = link_to diary do
-        .diary
-          = diary.title
-p
-  = link_to 'Back', users_path
+.flex_wrapper
+  .user_show_wrapper
+    .icon_wrapper
+      .user_icon
+        = image_tag @user.icon.url, class: 'icon icon_img'
+    .profile_wrapper
+      .user_profile
+        #name #{@user.name}
+        - if current_user == @user
+          = link_to "公開日記", diaries_path, class: "btn btn-default mypage_button"
+          = link_to "友達一覧", relationships_path, class: "btn btn-default mypage_button"
+          = link_to "グループ一覧", groups_path, class: "btn btn-default mypage_button"
+        - else
+          = render "follow_form", user: @user
+        .body_weight 開始体重: #{@user.body_weight}kg
+        .target_weight 目標体重: #{@user.target_weight}kg
+        .profile プロフィール:
+        .profile_content_wrapper
+          = simple_format(@user.profile,class:"profile_content")
+    - if @user.id == current_user.id
+      .set_link
+        = link_to "ユーザー情報の変更", edit_user_registration_path, class: 'glyphicon glyphicon-cog'
+    - else
+      .set_link
+        = link_to "戻る", :back
+
+  br
+  .article_wrapper
+    = link_to diaries_path do
+      h1.glyphicon.glyphicon-book Diary
+    .diaries_wrapper
+      - @diaries.each do |diary|
+        .diary_wrapper
+          .diary
+            = link_to diary do
+              = diary.title
+            .created_at
+              = diary.created_at.strftime("%Y年%m月%d日")
+    .chart_wrapper
+      = line_chart @user.diaries.pluck(:create_date, :body_weight).last(10),
+              id: 'total-attendance-chart',
+              width: '90%',
+              height: '300px',
+              colors: ['#b00']

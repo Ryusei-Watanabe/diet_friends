@@ -6,13 +6,37 @@
   margin: 0 auto;
 }
 .groups_index_wrapper{
-  height:35vw;
+  height:80vh;
   width: 80vw;
   overflow: scroll;
   margin: 0 auto;
 }
 .group_users_wrapper{
-  height: 50rem;
+  height: 49rem;
   width: 100%;
   overflow: scroll;
+  margin: 1rem 0;
+}
+.group_icon_wrapper{
+  overflow-x: scroll;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  opacity: 0.8;
+}
+.group_infomation{
+  background-color: #F7F7F7;
+  border-style: outset;
+  border-color: #fefefe;
+}
+.mutual_follow_users{
+  height: 49rem;
+  width: 100%;
+  overflow: scroll;
+  margin: 1rem 5rem;
+}
+.actions{
+
+  .group_submit{
+    margin: 0 auto;
+  }
 }

@@ -1,12 +1,10 @@
 = form_with(model: @diary, local: true, url:choose_new_or_edit) do |form|
-  div.field
-    = form.label :title
-    = form.text_field :title
-  div.field
-    = form.label :body_weight
-    = form.number_field :body_weight, autocomplete: "Body weight"
-  div.field
-    = form.label :study
-    = form.text_area :study
-  div.actions
-    = form.submit
+  .diary_form_wrapper
+    h1.field.diary_title_form
+      = form.text_field :title, size: "20", placeholder: "タイトル"
+    h2.field.diary_body_weight_form
+      = form.number_field :body_weight, size: "10", autocomplete: "Body weight", placeholder: "本日の体重"
+    div.field.diary_content_form
+      = form.text_area :study,size: "100x20", placeholder: "反省など"
+    div.actions.diary_submit_form
+      = form.submit class:"diary_submit"

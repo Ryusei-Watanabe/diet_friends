@@ -1,23 +1,12 @@
 .groups_index_wrapper
-- @groups.each do |group|
-  = link_to group_chats_path(group) do
-    p
-      = group.name
-      .group_icon_wrapper
-        - group.users.each do |user|
-            = image_tag user.icon.url, class: 'icon icon_image'
+  - @groups.each do |group|
+    = link_to group_chats_path(group) do
+      h1.group_infomation
+        = group.name
+        .group_icon_wrapper
+          - group.users.each do |user|
+              = image_tag user.icon.url, class: 'icon icon_image'
 .group_btn_wrapper
   = link_to '新規グループ', new_group_path, class: 'btn btn-default'
 .set_link
-  = link_to "戻る", :back
-
-/ .users_wrapper
-  - @users.each do |user|
-    = link_to user_path(user.id) do
-      .user_index_wrapper
-        .user_icon_wrapper.box
-          = image_tag user.icon.url, class: 'icon icon_image'
-        .user_name_wrapper.box
-          = user.name
-        .user_profile_wrapper.box
-          = user.profile
+  = link_to "戻る", user_path(current_user)

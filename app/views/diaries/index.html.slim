@@ -5,10 +5,10 @@
   .diaries_index_wrapper
     - @diaries.each do |diary|
       .diary_wrapper
-        .diary
-          = link_to diary do
+        = link_to diary do
+          .diary
             = diary.title
-          .created_at
-          = diary.created_at.strftime("%Y年%m月%d日")
+            .created_at
+            = diary.create_date.strftime("%Y年%m月%d日")
   .set_link
-    = link_to "戻る", :back
+    = link_to "戻る", user_path(current_user)

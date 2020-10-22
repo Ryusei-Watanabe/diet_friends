@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-  before_action :set_friends, only: [:new, :edit]
+  before_action :set_friends, only: [:new,:create, :edit,:update, :show]
   def index
     @groups = current_user.groups
   end

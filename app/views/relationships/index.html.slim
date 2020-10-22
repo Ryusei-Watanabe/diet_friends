@@ -1,12 +1,9 @@
-.et_pb_module
-  button id="guu" class="btn btn-default secList" type="button" 相互フォロー#{@users.count}
-.et_pb_module
-  button id="fuu" class="btn btn-default secList" type="button" フォロー中#{@followeds.count}
-.et_pb_module
-  button id="euu" class="btn btn-default secList" type="button" フォロワー#{@followers.count}
-.relationship_btn_wrapper
-  = link_to "友達を探す", users_path, class: 'glyphicon glyphicon-search btn btn-default'
-
+.btn_wrapper
+  .btn_position
+    button id="guu" class="btn btn-default secList et_pb_module mutual_followers_btn" type="button" 相互フォロー#{@users.count}
+    button id="fuu" class="btn btn-default secList et_pb_module followeds_btn" type="button" フォロー中#{@followeds.count}
+    button id="euu" class="btn btn-default secList et_pb_module followers_btn" type="button" フォロワー#{@followers.count}
+    = link_to "友達を探す", users_path, class: 'glyphicon glyphicon-search btn btn-default search_user_btn'
 .guu.users_wrapper
   - @users.each do |user|
     = link_to user_path(user.id),class: "user_link" do
@@ -37,6 +34,5 @@
           = user.name
         .user_profile_wrapper.box
           = user.profile
-
 .set_link
-  = link_to "戻る", :back
+  = link_to "戻る", user_path(current_user)

@@ -2,6 +2,87 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .diary_btn_wrapper{
-  width: 5rem;
+  width: 82px;
   margin: 0 auto;
+}
+.diary_form_wrapper{
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+  margin: 0 auto;
+}
+.diary_title_form{
+  position: absolute;
+  top: 2rem;
+  left: 0rem;
+}
+#diary_title{
+  font-size: 4rem;
+  width: 70vw;
+}
+.diary_body_weight_form{
+  position: absolute;
+  top: 2rem;
+  right: 0rem;
+}
+#diary_body_weight{
+  font-size: 4rem;
+  width: 30vw;
+}
+.diary_content_form{
+  position: absolute;
+  left: 0rem;
+  top: 9rem;
+}
+#diary_study{
+  width: 90vw;
+  height: 70vh;
+}
+.diary_submit_form{
+  position: absolute;
+  bottom: 5rem;
+  width: 90vw;
+}
+.diary_submit{
+  padding: 15px 40px;
+  font-size: 1.2em;
+  width: 90vw;
+}
+.diary_show_wrapper{
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+  margin: 0 auto;
+}
+.diary_create_date{
+  position: absolute;
+  top: 3rem;
+  right: 0rem;
+}
+.diary_edit_delete_btn{
+  position: absolute;
+  top: 5rem;
+  right: 0rem;
+}
+.diary_title{
+  position: absolute;
+  font-size: 4rem;
+  width: 70vw;
+  top: 2rem;
+  left: 0rem;
+}
+.diary_body_weight{
+  position: absolute;
+  font-size: 2rem;
+  width: 30vw;
+  top: 9rem;
+  left: 0rem;
+}
+.diary_content{
+  position: absolute;
+  left: 0rem;
+  top: 12rem;
+  width: 90vw;
+  height: 65vh;
+  overflow: scroll;
 }

@@ -1,11 +1,12 @@
 h1 友達を探す
-= search_form_for @q do |f|
-  = f.label :target_weight, "目標体重"
-  = f.number_field :target_weight_gteq
-  '以上
-  = f.number_field :target_weight_lt
-  '未満
-  = f.submit "検索"
+.search_form
+  = search_form_for @q do |f|
+    = f.label :target_weight, "目標体重"
+    = f.number_field :target_weight_gteq
+    '以上
+    = f.number_field :target_weight_lt
+    '未満
+    = f.submit "検索"
 .users_index_wrapper
   - @users.each do |user|
     = link_to user_path(user.id) do

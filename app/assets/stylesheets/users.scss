@@ -1,6 +1,10 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user_search{
+  width: 480px;
+  margin: 0 auto;
+}
 .diaries_index_wrapper{
   height: 50rem;
   width: 100%;
@@ -11,7 +15,6 @@
   margin-bottom: 1rem;
   width: 100%;
   overflow: scroll;  /* スクロールバーを表示(※) */
-  //border: black 1px dashed;    /* 枠線を追加 */
 }
 .diary_wrapper{margin: 1rem auto;}
 .diary{
@@ -33,3 +36,6 @@
   overflow: scroll;
   margin: 1.5rem 0;
 }
+//.chartjs-render-monitor{
+//  background-color: white;
+//}

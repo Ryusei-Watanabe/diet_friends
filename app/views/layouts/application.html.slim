@@ -15,8 +15,10 @@ html
         #gnavi.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
-              li = link_to "マイページ", user_path(current_user.id), class: "glyphicon glyphicon-user"
-                / span.glyphicon.glyphicon-user
+              li.link_mypage
+                = link_to user_path(current_user.id), class: 'mypage_btn_image_wrapper' do
+                    = image_tag current_user.icon.url, class: 'icon mypage_btn_image'
+                    .btn_display マイページ
               li = link_to "ログアウト", destroy_user_session_path, method: :delete
             - else
               li = link_to "新規登録", new_user_registration_path

@@ -1,14 +1,20 @@
-h1
-  = @diary.title
-p
-  = @diary.study
-p
-  = @diary.created_at.strftime("%Y年%m月%d日")
-
-= simple_format(@diary.study)
+.diary_show_wrapper
+  h1.diary_title
+    = @diary.title
+  - if @diary.user.id == current_user.id
+  .diary_edit_delete_btn
+    = link_to '編集', edit_diary_path(@diary), class: 'btn btn-default'
+    = link_to '削除', @diary, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default'
+  .diary_body_weight
+    = @diary.body_weight
+  = simple_format(@diary.study, class: "diary_content")
+  .diary_create_date
+    = @diary.create_date.strftime("%Y年%m月%d日")
 - if @diary.user.id == current_user.id
-  = link_to '編集', edit_diary_path(@diary), class: 'btn btn-default'
-  = link_to '削除', @diary, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default'
-.set_link
-  = link_to "戻る", :back
+  .set_link
+    = link_to "戻る", diaries_path
+- else
+  .set_link
+    = link_to "戻る", user_path(@user)
+
 

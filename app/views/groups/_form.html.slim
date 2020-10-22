@@ -1,10 +1,11 @@
 = form_with(model: @group, local: true, url:group_new_or_edit) do |form|
-  h1.field
-    = form.label :name,'グループ名: '
-    = form.text_field :name
-  .mutual_follow_users
-    = form.collection_check_boxes :user_ids, @users, :id, :name do |user|
-      .mutual_follow_user
-        = user.label { user.check_box + user.text }
-  div.actions
-    = form.submit
+  .diary_form_wrapper
+    h1.field
+      = form.label :name,'グループ名: '
+      = form.text_field :name
+    .mutual_follow_users
+      = form.collection_check_boxes :user_ids, @users, :id, :name do |user|
+        .mutual_follow_user
+          = user.label { user.check_box + user.text }
+    div.actions.diary_submit_form
+      = form.submit

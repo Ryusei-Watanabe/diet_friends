@@ -1,5 +1,6 @@
 class DiariesController < ApplicationController
   before_action :set_diary, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :whose_diary?, only: [:edit, :destroy]
   def index
     @diaries = current_user.diaries.order(created_at: :desc)
@@ -11,12 +12,12 @@ class DiariesController < ApplicationController
     @diary = current_user.diaries.build(diary_params)
     @diary.create_date = Date.today
     if params[:back]
-      render :new
+      render :new, notice: 'Diary was successfully created.'
     else
       if @diary.save
-        redirect_to diaries_path, notice: 'Post was successfully created.'
+        redirect_to diaries_path, notice: 'Diary was successfully edited.'
       else
-        render
+        render :edit, notice: 'Diary was not successfully edited.'
       end
     end
   end

@@ -2,7 +2,7 @@
   - if @diary.errors.any?
     #error_explanation
       h2
-        = pluralize(@diary.errors.count, t('view.ProhibitedThisTaskFromBeingSaved:'))
+        = pluralize(@diary.errors.count, t('view.ProhibitedThisDiaryFromBeingSaved:'))
         ul
           - @diary.errors.full_messages.each do |message|
             li

@@ -2,7 +2,7 @@
   - if @group.errors.any?
     #error_explanation
       h2
-        = pluralize(@group.errors.count, t('view.ProhibitedThisTaskFromBeingSaved:'))
+        = pluralize(@group.errors.count, t('view.ProhibitedThisGroupFromBeingSaved:'))
         ul
           - @group.errors.full_messages.each do |message|
             li

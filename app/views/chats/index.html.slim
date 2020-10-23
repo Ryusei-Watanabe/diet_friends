@@ -1,7 +1,7 @@
 - if @chat.errors.any?
   #error_explanation
     h2
-      = pluralize(@chat.errors.count, t('view.ProhibitedThisTaskFromBeingSaved:'))
+      = pluralize(@chat.errors.count, t('view.ProhibitedThisChatFromBeingSaved:'))
       ul
         - @chat.errors.full_messages.each do |message|
           li

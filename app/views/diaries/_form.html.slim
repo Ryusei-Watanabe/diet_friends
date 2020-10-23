@@ -1,4 +1,12 @@
 = form_with(model: @diary, local: true, url:choose_new_or_edit) do |form|
+  - if @diary.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@diary.errors.count, t('view.ProhibitedThisTaskFromBeingSaved:'))
+        ul
+          - @diary.errors.full_messages.each do |message|
+            li
+              = message
   .diary_form_wrapper
     h1.field.diary_title_form
       = form.text_field :title, size: "20", placeholder: "タイトル"

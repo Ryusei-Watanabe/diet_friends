@@ -64,8 +64,10 @@ body{
 }
 .toppage_under{
     position: absolute;
-    bottom: 10vh;
-    left: 10vw;
+    bottom: 5vh;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     height: 30vh;
 }
 .icon_field{

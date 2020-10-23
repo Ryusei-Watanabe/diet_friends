@@ -1,6 +1,6 @@
 - if @chat.errors.any?
   #error_explanation
-    h2
+    .text-warning.error_explanation
       = pluralize(@chat.errors.count, t('view.ProhibitedThisChatFromBeingSaved:'))
       ul
         - @chat.errors.full_messages.each do |message|
@@ -10,6 +10,7 @@
   h1.group_chat_name
     = @group.name
 .wrapper
-  = render "main_chat"
+  .main_chat_wrapper
+    = render "main_chat"
 .set_link
   = link_to "戻る", groups_path

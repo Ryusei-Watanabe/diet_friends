@@ -1,7 +1,6 @@
 = form_with(model: @diary, local: true, url:choose_new_or_edit) do |form|
   - if @diary.errors.any?
     #error_explanation
-      h2
         = pluralize(@diary.errors.count, t('view.ProhibitedThisDiaryFromBeingSaved:'))
         ul
           - @diary.errors.full_messages.each do |message|

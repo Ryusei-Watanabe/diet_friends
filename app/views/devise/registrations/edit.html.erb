@@ -5,18 +5,18 @@
       <%= render "devise/shared/error_messages", resource: resource %>
       <div class="toppage_upper_left">
         <div class="field">
-          <%= f.label :name %><br />
+          <%= f.label :name, "ニックネーム" %><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
         </div>
         <div class="field">
-          <%= f.label :email %><br />
+          <%= f.label :email, "メールアドレス" %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
         <% end %>
         <div class="field">
-          <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
+          <%= f.label :password, "新しいパスワード" %> <br /> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
           <%= f.password_field :password, autocomplete: "new-password" %>
           <% if @minimum_password_length %>
             <br />
@@ -24,27 +24,27 @@
           <% end %>
         </div>
         <div class="field">
-          <%= f.label :password_confirmation %><br />
+          <%= f.label :password_confirmation, "パスワード確認" %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
       </div>
       <div class="toppage_upper_right">
         <div class="field">
-          <%= f.label :body_weight %><br />
+          <%= f.label :body_weight, "開始体重" %><br />
           <%= f.text_field :body_weight, autocomplete: "Body weight" %>
         </div>
         <div class="field">
-          <%= f.label :target_weight %><br />
+          <%= f.label :target_weight, "目標体重" %><br />
           <%= f.text_field :target_weight, autocomplete: "Target weight" %>
+        </div>
+        <div class="field">
+          <%= f.label :profile, "プロフィール" %><br />
+          <%= f.text_area :profile, rows: 6, cols: 30,autocomplete: "プロフィール" %>
         </div>
       </div>
       <div class="toppage_under">
         <div class="field">
-          <%= f.label :profile %><br />
-          <%= f.text_area :profile, autocomplete: "プロフィール" %>
-        </div>
-        <div class="field">
-          <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
+          <%= f.label :current_password %> <br /><i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
           <%= f.password_field :current_password, autocomplete: "current-password" %>
         </div>
         <div class="actions">

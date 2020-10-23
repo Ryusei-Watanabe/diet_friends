@@ -11,7 +11,8 @@ class ChatsController < ApplicationController
       redirect_to group_chats_path(@group)
     else
       @chats = @group.chats.includes(:user)
-      flash.now[:alert] = 'メッセージを入力してください。'
+      # binding.irb
+      # flash.now[:alert] = 'メッセージを入力してください。'
       render :index
     end
   end

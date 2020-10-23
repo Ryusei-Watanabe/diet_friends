@@ -29,7 +29,7 @@ class DiariesController < ApplicationController
     if @diary.update(diary_params)
       redirect_to diaries_path, notice: 'EditDiary'
     else
-      render :edit
+      render :edit, notice: 'EditDiary'
     end
   end
   def destroy

@@ -1,5 +1,5 @@
 .wrapper
-  h1 Diary
+  h1.function_index Diary
   .diary_btn_wrapper
     = link_to '新規投稿', new_diary_path, class: 'btn btn-default'
   .diaries_index_wrapper
@@ -10,5 +10,5 @@
             = diary.title
             .created_at
             = diary.create_date.strftime("%Y年%m月%d日")
-  .set_link
+  / .set_link
     = link_to "戻る", user_path(current_user)

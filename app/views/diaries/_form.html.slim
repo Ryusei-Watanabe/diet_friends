@@ -1,6 +1,6 @@
 = form_with(model: @diary, local: true, url:choose_new_or_edit) do |form|
   - if @diary.errors.any?
-    #error_explanation
+    #error_explanation.alert_invalid-l
         = pluralize(@diary.errors.count, t('view.ProhibitedThisDiaryFromBeingSaved:'))
         ul
           - @diary.errors.full_messages.each do |message|
@@ -10,8 +10,8 @@
     h1.field.diary_title_form
       = form.text_field :title, size: "20", placeholder: "タイトル"
     h2.field.diary_body_weight_form
-      = form.number_field :body_weight, size: "10", autocomplete: "Body weight", placeholder: "本日の体重"
+      = form.number_field :body_weight, in: 0.0..200.0,step: 0.1, size: "10", autocomplete: "Body weight", placeholder: "本日の体重"
     div.field.diary_content_form
-      = form.text_area :study,size: "100x20", placeholder: "反省など"
+      = form.text_area :study, size: "100x20", placeholder: "反省など"
     div.actions.diary_submit_form
       = form.submit class:"diary_submit"

@@ -1,8 +1,8 @@
-h1
+h1.function_index
   = @group.name
-p
+p.function_index
   = link_to "グループを編集", edit_group_path, class: 'btn btn-default'
-p
+p.function_index
   = link_to "グループを脱退",@group, method: :delete, data: {confirm: 'Are you sure?' }, class: 'btn btn-default'
 
 .group_users_wrapper
@@ -15,7 +15,7 @@ p
           = user.name
         .user_profile_wrapper.box
           = user.profile
-.set_link
+/ .set_link
   = link_to "戻る", group_chats_path(@group)
 
 

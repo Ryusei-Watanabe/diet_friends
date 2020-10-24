@@ -10,10 +10,10 @@
   = simple_format(@diary.study, class: "diary_content")
   .diary_create_date
     = @diary.create_date.strftime("%Y年%m月%d日")
-- if @diary.user.id == current_user.id
+/ - if @diary.user.id == current_user.id
   .set_link
     = link_to "戻る", diaries_path
-- else
+/ - else
   .set_link
     = link_to "戻る", user_path(@user)
 

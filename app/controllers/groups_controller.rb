@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
   before_action :set_friends, only: [:new,:create, :edit,:update, :show]
+  before_action :authenticate_user!
   def index
     @groups = current_user.groups
   end
@@ -12,7 +13,6 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     @group.users << current_user
-    # assignsのuser_idに登録される
     if @group.save
       redirect_to groups_path, notice: 'グループを作成しました'
     else

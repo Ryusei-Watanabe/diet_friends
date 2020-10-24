@@ -19,23 +19,23 @@
           = simple_format(@user.profile,class:"profile_content")
     - if @user.id == current_user.id
       .user_setting
-        = link_to "ユーザー情報の変更", edit_user_registration_path, class: 'glyphicon glyphicon-cog'
-    - else
+        = link_to "ユーザー情報の変更", edit_user_registration_path
+    / - else
       .set_link
         = link_to "戻る", relationships_path
 
   br
   .article_wrapper
     = link_to diaries_path do
-      h1.glyphicon.glyphicon-book Diary
+      h1 Diary
     .diaries_wrapper
       - @diaries.each do |diary|
         .diary_wrapper
-          .diary
-            = link_to diary do
+          = link_to diary do
+            .diary
               = diary.title
-            .created_at
-              = diary.created_at.strftime("%Y年%m月%d日")
+              .created_at
+                = diary.created_at.strftime("%Y年%m月%d日")
     .chart_wrapper
       = line_chart @user.diaries.pluck(:create_date, :body_weight).last(10),
               id: 'total-attendance-chart',

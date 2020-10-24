@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show]
+  before_action :authenticate_user!
   def index
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(5)

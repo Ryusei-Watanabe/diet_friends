@@ -1,4 +1,5 @@
 class RelationshipsController < ApplicationController
+  before_action :authenticate_user!
   respond_to? :js
   def index
     @users = current_user.followeds & current_user.followers

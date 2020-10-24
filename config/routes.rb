@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  get 'tops/index'
   get 'relationships/create'
   get 'relationships/destroy'
   devise_for :users, controllers: {
       registrations: 'users/registrations'
   }
-  root to: 'users#index'
+  root to: 'tops#index'
   resources :users, only: [:index, :show]
   resources :diaries
   resources :groups do

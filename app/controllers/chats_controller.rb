@@ -1,6 +1,7 @@
 class ChatsController < ApplicationController
   before_action :set_group, only: [:index, :create,:destroy]
   before_action :set_chat, only: [:destroy]
+  before_action :authenticate_user!
   def index
     @chat = Chat.new
     @chats = @group.chats.includes(:user).order( created_at: :desc)
@@ -11,7 +12,6 @@ class ChatsController < ApplicationController
       redirect_to group_chats_path(@group)
     else
       @chats = @group.chats.includes(:user)
-      # binding.irb
       # flash.now[:alert] = 'メッセージを入力してください。'
       render :index
     end
@@ -19,7 +19,7 @@ class ChatsController < ApplicationController
   def destroy
     if @chat.user == current_user
       @chat.destroy
-      redirect_to group_chats_path, notice: 'Chat was successfully destroyed.'
+      redirect_to group_chats_path, notice: 'チャットを削除しました'
     end
   end
   private

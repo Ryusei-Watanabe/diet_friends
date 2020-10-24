@@ -1,6 +1,17 @@
 ---
 ja:
+  groups:
+    update:
+      EditGroup: "グループを編集しました"
+  views:
+    controller:
+      CreateDiary: "公開日記を投稿しました"
+      DontCreateDiary: "投稿できませんでした"
+      EditDiary: "公開日記を変更しました"
+      DontEditDiary: "変更できませんでした"
+      DiaryWasSuccessfullyDestroyed: "削除しました"
   view:
+    diaries:
     ProhibitedThisGroupFromBeingSaved:: 件のエラーがあります
     ProhibitedThisUserFromBeingSaved:: 件のエラーがあります
     ProhibitedThisDiaryFromBeingSaved:: 件のエラーがあります

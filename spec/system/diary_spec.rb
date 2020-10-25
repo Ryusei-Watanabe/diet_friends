@@ -29,11 +29,13 @@ RSpec.describe '公開日記機能', type: :system do
     end
     # context '【 公開日記を削除した場合 】' do
     #   it '【 一覧から削除される 】' do
-    #     diary = Diary.first
-    #     visit diary_path(diary.id)
-    #     binding.irb
+    #     diary = Diary.last
+    #     user = User.find_by(name: "user01")
+    #     visit diaries_path
+    #     # binding.irb
+    #     click_on "diary01"
     #     page.accept_confirm do
-    #       click_on "/diaries/#{diary.id}"
+    #       click_on "編集"
     #     end
     #     expect(page).to have_content '削除しました'
     #   end

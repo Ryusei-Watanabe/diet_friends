@@ -2,8 +2,9 @@
   = render @chats
 .chat_form_wrapper
   .chat_form
+    = link_to "グループについて", group_path(@group), class: 'btn btn-default  group_show_submit'
     = form_for [@group, @chat] do |f|
       = f.text_area :content,rows: 1, class: 'content_form', placeholder: 'type a message'
       = f.label :image, class: 'image_form '
         = f.file_field :image
-      = f.submit '送信', class: 'chat_submit'
+      = f.submit '送信', class: 'btn btn-success chat_submit'

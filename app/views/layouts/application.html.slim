@@ -25,9 +25,11 @@ html
               li = link_to "新規登録", new_user_registration_path
               li = link_to "ログイン", new_user_session_path
     - if notice
-      .alert.alert-notice.alert-notice-back
+      .alert.alert-notice.alert-success
+        / alert-notice-back
         = notice
     - if alert
-      p.alert.alert-error.alert-error-back
-      = alert
+      p.alert.alert-error.alert-danger
+        / alert-error-back
+        = alert
     = yield

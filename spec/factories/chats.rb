@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :chat do
+    content { 'chat01' }
   end
   # factory :first_chat do
   #   content { 'chat01' }

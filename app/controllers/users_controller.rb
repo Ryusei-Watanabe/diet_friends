@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   def index
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(5)
+    @users = @q.result(distinct:true).where.not(id: current_user.id)
   end
   def show
     @diaries = @user.diaries.select(:id, :title, :created_at).order(created_at: :desc)

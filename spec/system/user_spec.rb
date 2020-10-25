@@ -14,6 +14,14 @@ RSpec.describe 'ユーザ管理機能', type: :system do
         expect(page).to have_content 'test'
       end
     end
+    context '【 ユーザがログインせず日記一覧画面に飛ぼうとした場合 】' do
+      it '【 ログイン画面が表示される】' do
+        visit diaries_path
+        expect(current_path).to eq new_user_session_path
+      end
+    end
+  end
+  describe '【 ログイン機能のテスト 】' do
     context '【 ユーザーがログインした場合 】' do
       it '【 ユーザーの詳細ページに飛ぶ 】' do
         visit new_user_session_path
@@ -29,15 +37,17 @@ RSpec.describe 'ユーザ管理機能', type: :system do
         fill_in 'user[email]', with: 'test01@sample.com'
         fill_in 'user[password]', with: 'aaaaaa'
         click_on 'commit'
-        visit root_path
-        expect(page).to have_content 'user01'
+        visit new_user_session_path
+        expect(page).to have_content 'すでにログインしています。'
       end
     end
-    context '【 ユーザがログインせず日記一覧画面に飛ぼうとした場合 】' do
-      it '【 ログイン画面が表示される】' do
-        visit diaries_path
-        expect(current_path).to eq new_user_session_path
-      end
+    it '【 ログアウトができること 】' do
+      visit new_user_session_path
+      fill_in 'user[email]', with: 'test01@sample.com'
+      fill_in 'user[password]', with: 'aaaaaa'
+      click_on 'commit'
+      click_on 'ログアウト'
+      expect(page).to have_content 'ログアウトしました。'
     end
   end
 end

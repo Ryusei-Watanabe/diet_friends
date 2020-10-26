@@ -2,6 +2,7 @@ class ChatsController < ApplicationController
   before_action :set_group, only: [:index, :create,:destroy]
   before_action :set_chat, only: [:destroy]
   before_action :authenticate_user!
+  before_action :assigned_user!, only: [:index]
   def index
     @chat = Chat.new
     @chats = @group.chats.includes(:user).order( created_at: :desc)
@@ -23,6 +24,12 @@ class ChatsController < ApplicationController
     end
   end
   private
+  def assigned_user!
+    if @group.users.exclude?(current_user)
+      flash[:notice] = "あなたが所属しているグループではありません"
+      redirect_to groups_path
+    end
+  end
   def set_group
     @group = Group.find(params[:group_id])
   end

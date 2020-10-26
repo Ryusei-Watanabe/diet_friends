@@ -1,10 +1,10 @@
 require 'rails_helper'
 RSpec.describe '公開日記機能', type: :system do
+  # let!(:second_user) { FactoryBot.create(:second_user) }
   let!(:user) { FactoryBot.create(:user) }
-  let!(:second_user) { FactoryBot.create(:second_user) }
-  let!(:diary) { FactoryBot.create(:diary, user: user) }
-  let!(:relationship) { FactoryBot.create(:relationship, follower_id: user.id, followed_id: second_user.id) }
-  let!(:relationship) { FactoryBot.create(:relationship, follower_id: second_user.id, followed_id: user.id) }
+  let!(:diary) { FactoryBot.create(:diary) }
+  # let!(:relationship) { FactoryBot.create(:relationship, follower_id: user.id, followed_id: second_user.id) }
+  # let!(:relationship) { FactoryBot.create(:relationship, follower_id: second_user.id, followed_id: user.id) }
   describe '【 公開日記のテスト 】' do
     before do
       visit new_user_session_path
@@ -27,18 +27,23 @@ RSpec.describe '公開日記機能', type: :system do
         expect(page).to have_content 'diary02'
       end
     end
-    # context '【 公開日記を削除した場合 】' do
-    #   it '【 一覧から削除される 】' do
-    #     diary = Diary.last
-    #     user = User.find_by(name: "user01")
-    #     visit diaries_path
-    #     # binding.irb
-    #     click_on "diary01"
-    #     page.accept_confirm do
-    #       click_on "編集"
-    #     end
-    #     expect(page).to have_content '削除しました'
-    #   end
-    # end
+    context '【 日記を編集した場合 】' do
+      it '【 一覧が編集される 】' do
+        visit diary_path(Diary.last.id)
+        click_on "編集"
+        fill_in 'diary[title]', with: 'edit_diary01'
+        click_on '更新する'
+        expect(page).to have_content '公開日記を変更しました'
+      end
+    end
+    context '【 公開日記を削除した場合 】' do
+      it '【 一覧から削除される 】' do
+        visit diary_path(Diary.last.id)
+        page.accept_confirm do
+          click_on "削除"
+        end
+        expect(page).to have_content '削除しました'
+      end
+    end
   end
 end

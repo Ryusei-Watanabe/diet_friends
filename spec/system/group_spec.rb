@@ -27,44 +27,55 @@ RSpec.describe 'グループ機能', type: :system do
         expect(page).to have_content 'sample02'
       end
     end
-    describe '【 既存のグループのテスト 】' do
+    describe '【 既存のグループの詳細ページのテスト 】' do
+      before do
+        visit new_user_session_path
+        fill_in 'user[email]', with: 'test01@sample.com'
+        fill_in 'user[password]', with: 'aaaaaa'
+        click_on 'commit'
+        visit groups_path
+        click_on 'sample01'
+        click_on 'グループについて'
+      end
       context '【 既存のグループをクリックした場合 】' do
         it '【 グループの詳細が表示される 】' do
-          visit new_user_session_path
-          fill_in 'user[email]', with: 'test01@sample.com'
-          fill_in 'user[password]', with: 'aaaaaa'
-          click_on 'commit'
-          visit groups_path
-          click_on 'sample01'
-          click_on 'グループについて'
           expect(page).to have_content 'sample01'
+        end
+      end
+      context '【 既存のグループをクリックした場合 】' do
+        it '【 グループの編集ができる 】' do
+          click_on 'グループを編集'
+          fill_in 'group[name]', with: 'edited_sample01'
+          click_on 'commit'
+          expect(page).to have_content 'グループを編集しました'
+          expect(page).to have_content 'edited_sample01'
         end
       end
     end
     describe '【 既存のグループから脱退するテスト 】' do
+      before do
+        visit new_user_session_path
+        fill_in 'user[email]', with: 'test01@sample.com'
+        fill_in 'user[password]', with: 'aaaaaa'
+        click_on 'commit'
+        visit groups_path
+        click_on 'sample01'
+        click_on 'グループについて'
+      end
       context '【 グループのメンバーが一人の場合 】' do
         it '【 グループが削除される 】' do
-          visit new_user_session_path
-          fill_in 'user[email]', with: 'test01@sample.com'
-          fill_in 'user[password]', with: 'aaaaaa'
-          click_on 'commit'
-          visit groups_path
-          click_on 'sample01'
-          click_on 'グループについて'
           page.accept_confirm do
             click_on 'グループを脱退'
           end
           expect(page).to have_content 'グループを削除しました'
         end
       end
-    end
-    describe '【 既存のグループから脱退するテスト 】' do
       context '【 グループのメンバーが2人以上の場合 】' do
         it '【 自分が所属しているグループが作成される 】' do
-          visit new_user_session_path
-          fill_in 'user[email]', with: 'test01@sample.com'
-          fill_in 'user[password]', with: 'aaaaaa'
-          click_on 'commit'
+          # visit new_user_session_path
+          # fill_in 'user[email]', with: 'test01@sample.com'
+          # fill_in 'user[password]', with: 'aaaaaa'
+          # click_on 'commit'
           visit users_path
           click_on 'user02'
           click_on 'フォロー'
@@ -80,24 +91,6 @@ RSpec.describe 'グループ機能', type: :system do
           end
           expect(page).to have_content 'グループを脱退しました'
           expect(page).to_not have_content 'sample02'
-        end
-      end
-    end
-    describe '【 既存のグループのテスト 】' do
-      context '【 既存のグループをクリックした場合 】' do
-        it '【 グループの編集ができる 】' do
-          visit new_user_session_path
-          fill_in 'user[email]', with: 'test01@sample.com'
-          fill_in 'user[password]', with: 'aaaaaa'
-          click_on 'commit'
-          visit groups_path
-          click_on 'sample01'
-          click_on 'グループについて'
-          click_on 'グループを編集'
-          fill_in 'group[name]', with: 'edited_sample01'
-          click_on 'commit'
-          expect(page).to have_content 'グループを編集しました'
-          expect(page).to have_content 'edited_sample01'
         end
       end
     end

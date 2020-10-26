@@ -4,6 +4,7 @@ FactoryBot.define do
     study { 'sample01' }
     body_weight { 75.0 }
     create_date { Date.today }
+    user_id { User.last.id }
   end
   # factory :diary do
   #   title { 'diary01' }

@@ -1,10 +1,9 @@
 class DiariesController < ApplicationController
   before_action :set_diary, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :whose_diary?, only: [:edit, :destroy]
   before_action :authenticate_user!
   def index
-    @diaries = current_user.diaries.order(created_at: :desc)
+    @diaries = Diary.all.includes(:user).order(created_at: :desc)
   end
   def new
     @diary = Diary.new

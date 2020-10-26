@@ -22,21 +22,20 @@ RSpec.describe 'チャット機能', type: :system do
       end
     end
   end
-  # describe '【 グループ内チャットのテスト 】' do
-  #   context '【 チャットを削除した場合 】' do
-  #     it '【 グループのチャット欄から削除したチャットが消える 】' do
-  #       visit new_user_session_path
-  #       fill_in 'user[email]', with: 'test01@sample.com'
-  #       fill_in 'user[password]', with: 'aaaaaa'
-  #       click_on 'commit'
-  #       visit groups_path
-  #       click_on 'sample01'
-  #       binding.irb
-  #       page.accept_confirm do
-  #         click_on '/groups/258/chats/35'
-  #       end
-  #       expect(page).to have_content 'チャットを削除しました'
-  #     end
-  #   end
-  # end
+  describe '【 グループ内チャットのテスト 】' do
+    context '【 チャットを削除した場合 】' do
+      it '【 グループのチャット欄から削除したチャットが消える 】' do
+        visit new_user_session_path
+        fill_in 'user[email]', with: 'test01@sample.com'
+        fill_in 'user[password]', with: 'aaaaaa'
+        click_on 'commit'
+        visit groups_path
+        click_on 'sample01'
+        page.accept_confirm do
+          click_on "chat_id#{chat.id}"
+        end
+        expect(page).to have_content 'チャットを削除しました'
+      end
+    end
+  end
 end

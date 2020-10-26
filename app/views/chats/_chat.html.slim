@@ -1,6 +1,6 @@
 .chat_wrapper
   - if chat.user == current_user
-    = link_to "チャット削除", group_chat_path(@group, chat), method: :delete, data: {confirm: 'Are you sure?'}, class: "chat_delete"
+    = link_to "チャット削除", group_chat_path(@group, chat),id: "chat_id#{chat.id}", method: :delete, data: {confirm: 'Are you sure?'}, class: "chat_delete"
   .upper-chat
     .upper_chat_user_icon
       = image_tag chat.user.icon.url, class: 'icon icon_image'

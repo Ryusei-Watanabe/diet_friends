@@ -1,6 +1,6 @@
 = form_with(model: @group, local: true, url:group_new_or_edit) do |form|
   - if @group.errors.any?
-    #error_explanation.alert_invalid-l
+    #error_explanation.alert_invalid-l.alert-danger
         = pluralize(@group.errors.count, t('view.ProhibitedThisGroupFromBeingSaved:'))
         ul
           - @group.errors.full_messages.each do |message|

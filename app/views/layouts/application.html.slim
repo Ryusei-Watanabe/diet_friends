@@ -21,12 +21,15 @@ html
                     .btn_display マイページ
               li = link_to "ログアウト", destroy_user_session_path, method: :delete
             - else
+              li = link_to "TOP", tops_index_path
               li = link_to "新規登録", new_user_registration_path
               li = link_to "ログイン", new_user_session_path
     - if notice
-      .alert.alert-notice.alert-notice-back
+      .alert.alert-notice.alert-success
+        / alert-notice-back
         = notice
     - if alert
-      p.alert.alert-error.alert-error-back
-      = alert
+      p.alert.alert-error.alert-danger
+        / alert-error-back
+        = alert
     = yield

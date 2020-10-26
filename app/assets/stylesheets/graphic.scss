@@ -244,22 +244,4 @@ p{margin-top: 0;}
     margin-bottom: 1rem;
     opacity: 0.8;
     width: 100%;
-    /*text-align: center;*/
-}
-.alert-notice-back{
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center;
-    background-color: #afd9ee;
-    height: 3rem;
-    margin: 10px 0;
-    padding-left: 15px;
-}
-.alert-error-back{
-    background-color: #e4b9b9;
-    height: 1.5rem;
-    vertical-align: center;
-    margin-top: 10px;
-    padding-left: 15px;
 }

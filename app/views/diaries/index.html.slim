@@ -5,10 +5,8 @@
   .diaries_index_wrapper
     - @diaries.each do |diary|
       .diary_wrapper
-        = link_to diary do
+        = link_to diary, id: "dairy#{diary.id}" do
           .diary
             = diary.title
             .created_at
             = diary.create_date.strftime("%Y年%m月%d日")
-  / .set_link
-    = link_to "戻る", user_path(current_user)

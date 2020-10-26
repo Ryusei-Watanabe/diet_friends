@@ -104,6 +104,7 @@ end
       group_id: 1,
       user_id: 1,
       )
+end
   10.times do |n|
     Chat.create!(
         content: "サンプル#{n+1}",

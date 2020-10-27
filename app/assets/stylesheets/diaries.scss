@@ -1,6 +1,12 @@
 // Place all the styles related to the diaries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.diaries_index_wrapper{
+  margin-top: 2rem;
+  height: 63rem;
+  width: 100%;
+  overflow: scroll;
+}
 .diary_btn_wrapper{
   width: 82px;
   margin: 0 auto;

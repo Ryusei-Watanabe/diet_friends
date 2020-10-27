@@ -59,7 +59,7 @@ body{
 }
 .toppage_under{
     position: absolute;
-    bottom: 5vh;
+    bottom: 5px;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -76,19 +76,14 @@ body{
 .flex_wrapper{
     display: flex;
 }
-.icon_img {
-    width:30vw;
-    height:30vh;
-    margin:0 auto;
-}
 .user_icon{
     width: 100%;
     height: auto;
     padding:15px;
 }
 .icon_img {
-    width: 20rem;
-    height: 20rem;
+    width: 18rem;
+    height: 18rem;
     border-radius:50%;
     margin: 0 auto;
     content: '写真を表示';

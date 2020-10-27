@@ -9,6 +9,10 @@
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
         </div>
         <div class="field">
+          <%= f.label :icon, "ユーザーアイコン" %> <br /> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
+          <%= f.file_field :icon, class: "icon_field" %>
+        </div>
+        <div class="field">
           <%= f.label :email, "メールアドレス" %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>

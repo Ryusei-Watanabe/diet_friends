@@ -7,9 +7,11 @@
       .user_profile
         #name #{@user.name}
         - if current_user == @user
+          = link_to "日記新規投稿", new_diary_path, class: "btn btn-default mypage_button"
           = link_to "公開日記", diaries_path, class: "btn btn-default mypage_button"
           = link_to "友達一覧", relationships_path, class: "btn btn-default mypage_button"
           = link_to "グループ一覧", groups_path, class: "btn btn-default mypage_button"
+          = link_to "ユーザー情報の変更", edit_user_registration_path, class: "btn btn-default mypage_button"
         - else
           = render "follow_form", user: @user
         .body_weight 開始体重: #{@user.body_weight}kg
@@ -17,12 +19,6 @@
         .profile プロフィール:
         .profile_content_wrapper
           = simple_format(@user.profile,class:"profile_content")
-    - if @user.id == current_user.id
-      .user_setting
-        = link_to "ユーザー情報の変更", edit_user_registration_path
-    / - else
-      .set_link
-        = link_to "戻る", relationships_path
 
   br
   .article_wrapper

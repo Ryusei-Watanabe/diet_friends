@@ -46,14 +46,14 @@ end
     icon: open("./db/fixtures/icon01.jpg")
   )
 end
-10.times do |n|
+27.times do |n|
   title = Faker::Music.band
   study= Faker::Music.album
   Diary.create!(
       title: title,
       study: study,
       body_weight: 70-(n-1),
-      create_date: "2020-8-#{n+1}",
+      create_date: "2020-10-#{n+1}",
       user_id: 1,
   )
 end

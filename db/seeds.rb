@@ -64,7 +64,7 @@ end
       title: title,
       study: study,
       body_weight: 70-(n-1),
-      create_date: "2020-8-#{n+1}",
+      create_date: "2020-10-#{n+1}",
       user_id: 2,
       )
 end

@@ -6,9 +6,11 @@
       | 目標の近い友人を見つけてコミュニティを作り達成しましょう。
     .loginpage_induction_wrapper
       .loginpage_induction
+        / h1.sentence
+        / = link_to "ログイン", new_user_session_path,class: "btn btn--orange btn--radius"
         h1.sentence
-          | 早速見つけよう！
-        = link_to "ログイン", new_user_session_path,class: "btn btn--orange btn--radius"
+          | ゲストユーザー
+        = link_to "ゲスト", users_guest_sign_in_path, method: :post, class: "btn btn--orange btn--radius guest__btn"
   .secound_wrapper
     .first_function
       h2.introduction
